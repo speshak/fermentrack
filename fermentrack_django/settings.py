@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'constance',
     'constance.backends.database',
     'huey.contrib.djhuey',
+    'django_prometheus',
 ]
 
 if sys.platform == "darwin":
@@ -65,6 +66,7 @@ if sys.platform == "darwin":
 #     INSTALLED_APPS += 'raven.contrib.django.raven_compat',
 
 MIDDLEWARE = [
+    'django_prometheus.middleware.PrometheusBeforeMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -72,6 +74,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_prometheus.middleware.PrometheusAfterMiddleware',
 ]
 
 ROOT_URLCONF = 'fermentrack_django.urls'

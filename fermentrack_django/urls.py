@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from django.contrib import admin
 
+from django.urls import include
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -122,6 +123,8 @@ urlpatterns = [
     url(r'site/settings/$', app.views.site_settings, name="site_settings"),
     url(r'site/help/$', app.views.site_help, name="site_help"),
 
+    # Prometheus endpoint
+    url('', include('django_prometheus.urls')),
 ] + static(settings.DATA_URL, document_root=settings.DATA_ROOT) + \
               firmware_flash.urls.firmware_flash_urlpatterns + gravity.urls.gravity_urlpatterns + \
               external_push.urls.external_push_urlpatterns

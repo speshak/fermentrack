@@ -22,6 +22,9 @@ requests        # for loading firmware data from websites
 esptool         # for flashing ESP8266 devices
 packaging~=17.1 # for testing requirements in the Tilt tests
 
+django-prometheus
+prometheus_client
+
 
 # Reminder - Update the version checks in gravity/tilt/tilt_tests.py when changing versions for the BT/Tilt pkgs
 redis==3.4.1           # for huey & gravity sensor support
